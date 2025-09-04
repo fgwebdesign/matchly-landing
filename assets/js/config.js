@@ -30,9 +30,23 @@ const CONFIG = {
 
     // Sección Banner Principal
     MAIN_BANNER: {
-        title: 'Matchly Sports App',
-        headline: 'De Excel a la cancha: tu torneo, en una App 🚀',
-        description: 'Desde la inscripción hasta el resultado final: Matchly Sports resuelve cada paso del torneo con una experiencia digital pensada para clubes, organizadores y jugadores.',
+        logo: {
+            path: 'assets/images/matchlyv3.png',
+            alt: 'Matchly Logo'
+        },
+        title: 'Sports App',
+        headline: '<span class="highlight-primary">Gestión</span> y <span class="highlight-secondary">juego</span><br>en una sola <span class="gradient-text">app</span> <span class="emoji">⚡</span>',
+        description: '<span class="brand">Matchly Sports</span> une a <span class="highlight-text">clubes</span>, <span class="highlight-text">jugadores</span> y <span class="highlight-text">sponsors</span> en una experiencia digital completa: <span class="features">ligas, torneos, resultados y galería</span> en tiempo real.',
+        cta: {
+            primary: {
+                text: '👉 Probar Matchly',
+                href: '#contact'
+            },
+            secondary: {
+                text: 'Conocé más sobre las funcionalidades',
+                href: '#services'
+            }
+        },
         images: {
             admin_panel: {
                 path: 'assets/images/admin1.png',
@@ -96,7 +110,7 @@ const CONFIG = {
             },
             {
                 id: 'torneos',
-                title: 'Torneos de Pádel',
+                title: 'Torneos',
                 icon: 'assets/images/2.png',
                 isComingSoon: true,
                 content: {
@@ -126,7 +140,7 @@ const CONFIG = {
                         '📲 Los jugadores pueden ver y descargar sus recuerdos en cualquier momento',
                         '🎉 Crea comunidad compartiendo la experiencia con todos los participantes'
                     ],
-                    image: 'assets/images/services-image-03.jpg'
+                    image: 'assets/images/galeria.png'
                 }
             },
             {

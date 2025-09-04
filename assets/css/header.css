@@ -1,9 +1,16 @@
 /* Estilos mejorados para el pre-header */
 .pre-header {
-    background: linear-gradient(135deg, #2B4B80 0%, #1E3557 100%);
+    background: linear-gradient(135deg, #2B4B80 0%, #4da6e7 100%);
     padding: 12px 0px;
     height: auto;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: relative;
+    box-shadow: 
+        0 10px 20px rgba(0,0,0,0.1),
+        0 4px 8px rgba(77, 166, 231, 0.1),
+        inset 0 -1px 0 rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .pre-header ul.info li {
@@ -26,16 +33,22 @@
 
 .pre-header ul.info li a i {
     font-size: 16px;
-    margin-right: 8px;
-    background: rgba(255, 255, 255, 0.1);
+    margin-right: 12px;
+    background: rgba(255, 255, 255, 0.15);
     padding: 8px;
-    border-radius: 50%;
+    border-radius: 12px;
     width: 32px;
     height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
+    box-shadow: 
+        0 4px 8px rgba(0,0,0,0.1),
+        inset 0 1px 1px rgba(255,255,255,0.1);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,0.1);
 }
 
 .pre-header ul.info li a i.fa-envelope-o {
@@ -72,22 +85,31 @@
 }
 
 .pre-header ul.social-media li a {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.15);
     color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 32px;
     height: 32px;
-    border-radius: 50%;
+    border-radius: 12px;
     font-size: 14px;
     transition: all 0.3s ease;
+    box-shadow: 
+        0 4px 8px rgba(0,0,0,0.1),
+        inset 0 1px 1px rgba(255,255,255,0.1);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,0.1);
 }
 
 .pre-header ul.social-media li a:hover {
-    background: #4da6e7;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(77, 166, 231, 0.3);
+    background: linear-gradient(135deg, #4da6e7 0%, #2B4B80 100%);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 
+        0 8px 16px rgba(77, 166, 231, 0.2),
+        inset 0 1px 1px rgba(255,255,255,0.2);
+    border-color: rgba(255,255,255,0.2);
 }
 
 /* Responsive adjustments */

@@ -34,15 +34,31 @@ document.addEventListener('DOMContentLoaded', () => {
     // Aplicar banner principal
     const banner = document.querySelector('.main-banner');
     if (banner) {
-        banner.querySelector('h6').textContent = CONFIG.MAIN_BANNER.title;
-        banner.querySelector('h2').textContent = CONFIG.MAIN_BANNER.headline;
-        banner.querySelector('p').textContent = CONFIG.MAIN_BANNER.description;
+        // Hero tag
+        const heroTagImg = banner.querySelector('.hero-tag img');
+        const heroTagSpan = banner.querySelector('.hero-tag span');
+        if (heroTagImg && heroTagSpan) {
+            heroTagImg.src = CONFIG.MAIN_BANNER.logo.path;
+            heroTagImg.alt = CONFIG.MAIN_BANNER.logo.alt;
+            heroTagSpan.textContent = CONFIG.MAIN_BANNER.title;
+        }
         
-        const bannerImages = banner.querySelectorAll('img');
-        bannerImages[0].src = CONFIG.MAIN_BANNER.images.admin_panel.path;
-        bannerImages[0].alt = CONFIG.MAIN_BANNER.images.admin_panel.alt;
-        bannerImages[1].src = CONFIG.MAIN_BANNER.images.mobile_app.path;
-        bannerImages[1].alt = CONFIG.MAIN_BANNER.images.mobile_app.alt;
+        // Headline y descripción
+        const headline = banner.querySelector('.hero-headline');
+        const subtitle = banner.querySelector('.hero-subtitle');
+        if (headline) headline.innerHTML = CONFIG.MAIN_BANNER.headline;
+        if (subtitle) subtitle.innerHTML = CONFIG.MAIN_BANNER.description;
+        
+        // Imágenes del banner
+        const bannerImages = banner.querySelectorAll('.right-image img');
+        if (bannerImages[0]) {
+            bannerImages[0].src = CONFIG.MAIN_BANNER.images.admin_panel.path;
+            bannerImages[0].alt = CONFIG.MAIN_BANNER.images.admin_panel.alt;
+        }
+        if (bannerImages[1]) {
+            bannerImages[1].src = CONFIG.MAIN_BANNER.images.mobile_app.path;
+            bannerImages[1].alt = CONFIG.MAIN_BANNER.images.mobile_app.alt;
+        }
     }
 
     // Aplicar sección Sobre Nosotros
@@ -81,18 +97,13 @@ document.addEventListener('DOMContentLoaded', () => {
         services.querySelector('.section-heading h6').textContent = CONFIG.SERVICES.title;
         services.querySelector('.section-heading h4').innerHTML = `${CONFIG.SERVICES.subtitle}`;
 
-        // Aplicar tabs de servicios
-        const menuContainer = services.querySelector('.menu');
-        menuContainer.innerHTML = CONFIG.SERVICES.tabs
-            .map((tab, index) => `
-                <div class="${index === 0 ? 'first-thumb active' : ''}">
-                    <div class="thumb">
-                        <span class="icon"><img src="${tab.icon}" alt=""></span>
-                        ${tab.title}
-                        ${tab.isComingSoon ? '<span class="coming-soon-tag">Coming Soon</span>' : ''}
-                    </div>
-                </div>
-            `).join('');
+        // Aplicar títulos de servicios a los elementos existentes
+        const serviceTitles = services.querySelectorAll('.content-wrapper .title');
+        CONFIG.SERVICES.tabs.forEach((tab, index) => {
+            if (serviceTitles[index]) {
+                serviceTitles[index].textContent = tab.title;
+            }
+        });
     }
 
     // Aplicar footer
