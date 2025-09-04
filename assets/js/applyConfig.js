@@ -59,6 +59,18 @@ document.addEventListener('DOMContentLoaded', () => {
             bannerImages[1].src = CONFIG.MAIN_BANNER.images.mobile_app.path;
             bannerImages[1].alt = CONFIG.MAIN_BANNER.images.mobile_app.alt;
         }
+        
+        // Aplicar CTA buttons
+        const primaryCTA = banner.querySelector('.main-cta');
+        const secondaryCTA = banner.querySelector('.secondary-cta');
+        if (primaryCTA) {
+            primaryCTA.href = CONFIG.MAIN_BANNER.cta.primary.href;
+            primaryCTA.innerHTML = CONFIG.MAIN_BANNER.cta.primary.text;
+        }
+        if (secondaryCTA) {
+            secondaryCTA.href = CONFIG.MAIN_BANNER.cta.secondary.href;
+            secondaryCTA.textContent = CONFIG.MAIN_BANNER.cta.secondary.text;
+        }
     }
 
     // Aplicar sección Sobre Nosotros
@@ -72,15 +84,16 @@ document.addEventListener('DOMContentLoaded', () => {
         aboutImage.alt = CONFIG.ABOUT.main_image.alt;
 
         const contentContainer = about.querySelector('.about-right-content');
-        const paragraphs = contentContainer.querySelectorAll('p');
-        paragraphs[0].textContent = CONFIG.ABOUT.content.intro;
-        paragraphs[1].innerHTML = CONFIG.ABOUT.content.highlight;
-        paragraphs[2].textContent = CONFIG.ABOUT.content.description;
+        contentContainer.querySelector('.intro-text').textContent = CONFIG.ABOUT.content.intro;
+        contentContainer.querySelector('.highlight-text').innerHTML = CONFIG.ABOUT.content.highlight;
+        contentContainer.querySelector('.description-text').textContent = CONFIG.ABOUT.content.description;
 
         const featuresList = about.querySelector('.features-list');
         featuresList.innerHTML = CONFIG.ABOUT.content.features
             .map(feature => `<li>${feature}</li>`)
             .join('');
+            
+        contentContainer.querySelector('.objective-text').innerHTML = CONFIG.ABOUT.content.conclusion;
     }
 
     // Aplicar estadísticas
@@ -95,13 +108,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const services = document.querySelector('#services');
     if (services) {
         services.querySelector('.section-heading h6').textContent = CONFIG.SERVICES.title;
-        services.querySelector('.section-heading h4').innerHTML = `${CONFIG.SERVICES.subtitle}`;
+        services.querySelector('.section-heading h4').innerHTML = `Nuestras <em>${CONFIG.SERVICES.subtitle}</em>`;
 
-        // Aplicar títulos de servicios a los elementos existentes
+        // Aplicar títulos e iconos de servicios a los elementos existentes
         const serviceTitles = services.querySelectorAll('.content-wrapper .title');
+        const serviceIcons = services.querySelectorAll('.icon img');
+        
         CONFIG.SERVICES.tabs.forEach((tab, index) => {
             if (serviceTitles[index]) {
                 serviceTitles[index].textContent = tab.title;
+            }
+            if (serviceIcons[index]) {
+                serviceIcons[index].src = tab.icon;
+                serviceIcons[index].alt = tab.title;
             }
         });
     }
