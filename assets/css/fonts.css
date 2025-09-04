@@ -1,0 +1,77 @@
+/* Opción 1 - Moderna y Deportiva */
+.font-option-1 {
+    --font-primary: 'Montserrat', sans-serif;
+    --font-secondary: 'Inter', sans-serif;
+}
+
+.font-option-1 h1,
+.font-option-1 h2,
+.font-option-1 h3,
+.font-option-1 h4,
+.font-option-1 h5,
+.font-option-1 h6,
+.font-option-1 .nav a {
+    font-family: var(--font-primary);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.font-option-1 p,
+.font-option-1 li,
+.font-option-1 span {
+    font-family: var(--font-secondary);
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+/* Opción 2 - Dinámica y Tech */
+.font-option-2 {
+    --font-primary: 'Outfit', sans-serif;
+    --font-secondary: 'Plus Jakarta Sans', sans-serif;
+}
+
+.font-option-2 h1,
+.font-option-2 h2,
+.font-option-2 h3,
+.font-option-2 h4,
+.font-option-2 h5,
+.font-option-2 h6,
+.font-option-2 .nav a {
+    font-family: var(--font-primary);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+.font-option-2 p,
+.font-option-2 li,
+.font-option-2 span {
+    font-family: var(--font-secondary);
+    font-weight: 400;
+    line-height: 1.7;
+}
+
+/* Opción 3 - Moderna y Limpia */
+.font-option-3 {
+    --font-primary: 'Space Grotesk', sans-serif;
+    --font-secondary: 'DM Sans', sans-serif;
+}
+
+.font-option-3 h1,
+.font-option-3 h2,
+.font-option-3 h3,
+.font-option-3 h4,
+.font-option-3 h5,
+.font-option-3 h6,
+.font-option-3 .nav a {
+    font-family: var(--font-primary);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+}
+
+.font-option-3 p,
+.font-option-3 li,
+.font-option-3 span {
+    font-family: var(--font-secondary);
+    font-weight: 400;
+    line-height: 1.6;
+}
