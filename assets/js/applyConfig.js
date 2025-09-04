@@ -119,8 +119,46 @@ document.addEventListener('DOMContentLoaded', () => {
                 serviceTitles[index].textContent = tab.title;
             }
             if (serviceIcons[index]) {
-                serviceIcons[index].src = tab.icon;
+                serviceIcons[index].src = tab.icon; 
                 serviceIcons[index].alt = tab.title;
+            }
+        });
+
+        // Aplicar contenido de las pestañas de servicios
+        const serviceContentTabs = services.querySelectorAll('.nacc li');
+        CONFIG.SERVICES.tabs.forEach((tab, index) => {
+            const contentTab = serviceContentTabs[index];
+            if (contentTab && tab.content) {
+                const leftText = contentTab.querySelector('.left-text');
+                if (leftText) {
+                    const h4 = leftText.querySelector('h4');
+                    const p = leftText.querySelector('p');
+                    const ticksList = leftText.querySelector('.ticks-list');
+                    
+                    if (h4) h4.textContent = tab.content.title;
+                    if (p) p.textContent = tab.content.description;
+                    
+                    if (ticksList && tab.content.features) {
+                        const iconClass = tab.isComingSoon ? 'fa fa-clock-o' : 'fa fa-check';
+                        ticksList.innerHTML = tab.content.features
+                            .map(feature => `<span><i class="${iconClass}"></i> ${feature}</span>`)
+                            .join('');
+                    }
+                    
+                    // Manejar update notice para torneos
+                    const updateNotice = leftText.querySelector('.update-notice');
+                    if (updateNotice && tab.isComingSoon && tab.content.conclusion) {
+                        updateNotice.querySelector('.update-icon').textContent = '🚀';
+                        updateNotice.querySelector('h5').textContent = 'Próxima Actualización';
+                        updateNotice.querySelector('p').textContent = tab.content.conclusion;
+                    }
+                }
+                
+                const rightImage = contentTab.querySelector('.right-image img');
+                if (rightImage && tab.content.image) {
+                    rightImage.src = tab.content.image;
+                    rightImage.alt = tab.title;
+                }
             }
         });
     }
