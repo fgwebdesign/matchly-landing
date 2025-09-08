@@ -79,9 +79,28 @@ document.addEventListener('DOMContentLoaded', () => {
         about.querySelector('.section-heading h6').textContent = CONFIG.ABOUT.title;
         about.querySelector('.section-heading h4').innerHTML = CONFIG.ABOUT.subtitle;
         
-        const aboutImage = about.querySelector('.about-left-image img');
-        aboutImage.src = CONFIG.ABOUT.main_image.path;
-        aboutImage.alt = CONFIG.ABOUT.main_image.alt;
+        // Generar slides del carrusel
+        const carousel = about.querySelector('.about-carousel');
+        if (carousel) {
+            carousel.innerHTML = CONFIG.ABOUT.carousel.main_slides
+                .map(slide => `
+                    <div class="item">
+                        <img src="${slide.path}" alt="${slide.alt}" class="main-slide">
+                    </div>
+                `).join('');
+        }
+
+        // Generar miniaturas flotantes
+        CONFIG.ABOUT.carousel.floating_thumbnails.forEach(thumb => {
+            const thumbElement = about.querySelector(`.floating-thumbnail.${thumb.position}`);
+            if (thumbElement) {
+                const img = thumbElement.querySelector('img');
+                if (img) {
+                    img.src = thumb.path;
+                    img.alt = thumb.alt;
+                }
+            }
+        });
 
         const contentContainer = about.querySelector('.about-right-content');
         contentContainer.querySelector('.intro-text').textContent = CONFIG.ABOUT.content.intro;

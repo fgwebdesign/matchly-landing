@@ -19,53 +19,87 @@ const CONFIG = {
             alt: 'Matchly Sports Logo'
         },
         menu_items: [
-            { text: 'Inicio', href: '#top', isActive: true },
-            { text: 'Sobre Matchly', href: '#about' },
             { text: 'Servicios', href: '#services' },
-            { text: 'Proyectos', href: '#portfolio' },
-            { text: 'Noticias', href: '#blog' },
-            { text: 'Contacto', href: '#contact' }
+            { text: 'Membresía', href: '#membership' },
+            { text: 'Eventos', href: '#events' },
+            { text: 'Sobre Nosotros', href: '#about' },
+            { text: 'Contacto', href: '#contact', isButton: true }
         ]
     },
 
     // Sección Banner Principal
     MAIN_BANNER: {
-        logo: {
-            path: 'assets/images/matchlyv3.png',
-            alt: 'Matchly Logo'
-        },
-        title: 'Sports App',
-        headline: '<span class="highlight-primary">Gestión</span> y <span class="highlight-secondary">juego</span><br>en una sola <span class="gradient-text">app</span> <span class="emoji">⚡</span>',
-        description: '<span class="brand">Matchly Sports</span> une a <span class="highlight-text">clubes</span>, <span class="highlight-text">jugadores</span> y <span class="highlight-text">sponsors</span> en una experiencia digital completa: <span class="features">ligas, torneos, resultados y galería</span> en tiempo real.',
+        tags: [
+            { text: 'Membresía' },
+            { text: 'Tennis' },
+            { text: 'Golf' },
+            { text: 'Wellness' }
+        ],
+        headline: 'Where nature<br>Meets the game',
+        description: 'Welcome to your personal escape — world-class courts, championship golf, and natural wellness in one serene space.',
         cta: {
             primary: {
-                text: '👉 Probar Matchly',
+                text: 'Join the club',
                 href: '#contact'
             },
             secondary: {
-                text: 'Conocé más sobre las funcionalidades',
+                text: 'Explore More',
                 href: '#services'
             }
         },
-        images: {
-            admin_panel: {
-                path: 'assets/images/admin1.png',
-                alt: 'Matchly Sports Admin Panel'
+        featured_image: {
+            path: 'assets/images/admin1.png', // Usaremos esta imagen temporalmente
+            alt: 'Club View'
+        },
+        stats: [
+            {
+                value: '6',
+                label: 'Player Slots',
+                icon: '🎾'
             },
-            mobile_app: {
-                path: 'assets/images/mobile2.png',
-                alt: 'Matchly Sports Mobile App'
+            {
+                value: '3rd',
+                label: 'Golf Green',
+                icon: '⛳'
             }
-        }
+        ]
     },
 
     // Sección Sobre Nosotros
     ABOUT: {
         title: 'Sobre nosotros',
         subtitle: 'Quiénes somos Matchly Sports',
-        main_image: {
-            path: 'assets/images/demo1.png',
-            alt: 'Matchly Sports Demo'
+        carousel: {
+            main_slides: [
+                {
+                    path: 'assets/images/matchlyadmin.png',
+                    alt: 'Panel de Administración'
+                },
+                {
+                    path: 'assets/images/matchlyadmin1.png',
+                    alt: 'Gestión de Torneos'
+                },
+                {
+                    path: 'assets/images/matchlyadmin3.png',
+                    alt: 'Sistema de Ligas'
+                },
+                {
+                    path: 'assets/images/matchlyadmin4.png',
+                    alt: 'Galería de Fotos'
+                }
+            ],
+            floating_thumbnails: [
+                {
+                    path: 'assets/images/matchlyadmin1.png',
+                    alt: 'Característica 1',
+                    position: 'top-right'
+                },
+                {
+                    path: 'assets/images/matchlyadmin3.png',
+                    alt: 'Característica 2',
+                    position: 'bottom-left'
+                }
+            ]
         },
         content: {
             intro: 'En muchos clubes, organizar torneos y ligas de pádel significaba horas frente a un Excel: fixtures interminables, horarios difíciles de coordinar y comunicación desordenada con los jugadores.',

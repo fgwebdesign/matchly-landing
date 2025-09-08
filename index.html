@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="assets/css/fonts.css">
     <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/gallery.css">
+    <link rel="stylesheet" href="assets/css/about-carousel.css">
     <!-- Fancybox CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"/>
 
@@ -150,8 +151,31 @@
         <div class="col-lg-12">
           <div class="row">
             <div class="col-lg-6">
-              <div class="about-left-image  wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
-                <img src="" alt="">
+              <div class="about-images-wrapper wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
+                <!-- Carrusel Principal -->
+                <div class="about-main-image">
+                  <div class="owl-carousel about-carousel">
+                    <div class="item">
+                      <img src="assets/images/matchlyadmin.png" alt="Panel de Administración" class="main-slide">
+                    </div>
+                    <div class="item">
+                      <img src="assets/images/matchlyadmin1.png" alt="Gestión de Torneos" class="main-slide">
+                    </div>
+                    <div class="item">
+                      <img src="assets/images/matchlyadmin3.png" alt="Sistema de Ligas" class="main-slide">
+                    </div>
+                    <div class="item">
+                      <img src="assets/images/matchlyadmin4.png" alt="Galería de Fotos" class="main-slide">
+                    </div>
+                  </div>
+                </div>
+                <!-- Miniaturas flotantes -->
+                <div class="floating-thumbnail top-right">
+                  <img src="assets/images/matchlyadmin1.png" alt="Característica 1">
+                </div>
+                <div class="floating-thumbnail bottom-left">
+                  <img src="assets/images/matchlyadmin3.png" alt="Característica 2">
+                </div>
               </div>
             </div>
             <div class="col-lg-6 align-self-center  wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
@@ -340,12 +364,12 @@
     <div class="container-fluid wow fadeIn" data-wow-duration="1s" data-wow-delay="0.7s">
       <div class="row">
         <div class="col-lg-12">
-          <div class="gallery-grid">
-            <!-- Panel de Admin -->
-            <a href="assets/images/matchlyadmin.png" 
-               data-fancybox="gallery" 
-               data-caption="Panel de Administración - Gestión completa de torneos y ligas"
-               class="gallery-item">
+            <div class="gallery-grid">
+              <!-- Panel de Admin -->
+              <a href="assets/images/matchlyadmin.png" 
+                 data-fancybox="gallery"
+                 data-type="image"
+                 class="gallery-item">
               <div class="portfolio-item">
                 <div class="thumb">
                   <img src="assets/images/matchlyadmin.png" alt="Panel de Administración">
@@ -528,29 +552,62 @@
   <!-- Contact Form Handler -->
   <script src="assets/js/handleContact.js"></script>
 
+  <!-- Inicialización de carruseles -->
+  <script>
+    // Esperar a que se aplique la configuración
+    document.addEventListener('DOMContentLoaded', () => {
+      // Inicializar el carrusel de la sección About después de un breve delay
+      setTimeout(() => {
+        $(".about-carousel").owlCarousel({
+        items: 1,
+        loop: true,
+        nav: false,
+        dots: true,
+        autoplay: true,
+        autoplayTimeout: 5000,
+        smartSpeed: 1000,
+        animateIn: 'fadeIn',
+        animateOut: 'fadeOut',
+        margin: 0,
+        responsive: {
+          0: {
+            items: 1
+          }
+        }
+      });
+    }, 100); // pequeño delay para asegurar que la configuración se haya aplicado
+    });
+  </script>
+
   <!-- Fancybox -->
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
   <script>
     Fancybox.bind("[data-fancybox]", {
-      // Opciones personalizadas
-      Carousel: {
-        friction: 0.8,
+      // Configuración básica
+      Images: {
+        zoom: false
       },
       Toolbar: {
         display: {
-          left: ["infobar"],
-          middle: [
-            "zoomIn",
-            "zoomOut",
-            "toggle1to1",
-            "rotateCCW",
-            "rotateCW",
-            "flipX",
-            "flipY",
-          ],
-          right: ["slideshow", "thumbs", "close"],
-        },
+          left: [],
+          middle: [],
+          right: ["close"]
+        }
       },
+      Carousel: {
+        // Activar flechas de navegación
+        Navigation: true
+      },
+      // Deshabilitar miniaturas y otros elementos
+      Thumbs: {
+        type: null
+      },
+      // Configuración de los botones de navegación
+      Navigation: {
+        arrows: true,
+        prevEl: '.fancybox__button--prev',
+        nextEl: '.fancybox__button--next'
+      }
     });
   </script>
 
