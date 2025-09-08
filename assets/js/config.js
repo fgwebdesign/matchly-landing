@@ -163,6 +163,59 @@ const CONFIG = {
         ]
     },
 
+    // Sección de Contacto
+    CONTACT: {
+        title: 'Contacto',
+        subtitle: 'Conecta con Matchly Sports',
+        decoration_image: {
+            path: 'assets/images/contact-dec-v3.png',
+            alt: 'Contact Decoration'
+        },
+        map: {
+            embed_url: 'https://maps.google.com/maps?q=Montevideo,+Uruguay&t=&z=13&ie=UTF8&iwloc=&output=embed'
+        },
+        contact_info: [
+            {
+                icon: 'assets/images/phone-icon.png',
+                value: '+598 92 033 831',
+                type: 'phone'
+            },
+            {
+                icon: 'assets/images/email-icon.png',
+                value: 'contacto@matchlysports.com',
+                type: 'email'
+            },
+            {
+                icon: 'assets/images/location-icon.png',
+                value: 'Montevideo, Uruguay',
+                type: 'location'
+            }
+        ],
+        form: {
+            fields: {
+                name: {
+                    placeholder: 'Nombre',
+                    required: true
+                },
+                email: {
+                    placeholder: 'Email',
+                    required: true
+                },
+                subject: {
+                    placeholder: 'Asunto',
+                    required: false
+                },
+                message: {
+                    placeholder: 'Mensaje',
+                    required: true
+                }
+            },
+            submit_button: {
+                text: 'Enviar Mensaje'
+            }
+        }
+    },
+
     // Configuración del Footer
     FOOTER: {
         copyright: '© 2022 DigiMedia Co., Ltd. All Rights Reserved.',

@@ -163,6 +163,69 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Aplicar sección de contacto
+    const contact = document.querySelector('#contact');
+    if (contact) {
+        // Aplicar títulos
+        contact.querySelector('.section-heading h6').textContent = CONFIG.CONTACT.title;
+        contact.querySelector('.section-heading h4').innerHTML = `${CONFIG.CONTACT.subtitle} <em>Now</em>`;
+
+        // Aplicar imagen decorativa
+        const decorImage = contact.querySelector('.contact-dec img');
+        if (decorImage) {
+            decorImage.src = CONFIG.CONTACT.decoration_image.path;
+            decorImage.alt = CONFIG.CONTACT.decoration_image.alt;
+        }
+
+        // Aplicar mapa
+        const mapIframe = contact.querySelector('#map iframe');
+        if (mapIframe) {
+            mapIframe.src = CONFIG.CONTACT.map.embed_url;
+        }
+
+        // Aplicar información de contacto
+        const infoPosts = contact.querySelectorAll('.info-post');
+        CONFIG.CONTACT.contact_info.forEach((info, index) => {
+            const infoPost = infoPosts[index];
+            if (infoPost) {
+                const icon = infoPost.querySelector('.icon img');
+                const link = infoPost.querySelector('.icon a');
+                
+                if (icon) {
+                    icon.src = info.icon;
+                    icon.alt = info.type;
+                }
+                
+                if (link) {
+                    link.href = info.type === 'email' ? `mailto:${info.value}` : 
+                               info.type === 'phone' ? `tel:${info.value}` : '#';
+                    link.textContent = info.value;
+                }
+            }
+        });
+
+        // Aplicar configuración del formulario
+        const form = contact.querySelector('form#contact');
+        if (form) {
+            // Configurar campos del formulario
+            Object.entries(CONFIG.CONTACT.form.fields).forEach(([fieldName, config]) => {
+                const input = form.querySelector(`#${fieldName}`);
+                if (input) {
+                    input.placeholder = config.placeholder;
+                    if (config.required) {
+                        input.required = true;
+                    }
+                }
+            });
+
+            // Configurar botón de envío
+            const submitButton = form.querySelector('#form-submit');
+            if (submitButton) {
+                submitButton.textContent = CONFIG.CONTACT.form.submit_button.text;
+            }
+        }
+    }
+
     // Aplicar footer
     const footer = document.querySelector('footer p');
     if (footer) {
