@@ -23,7 +23,6 @@ const CONFIG = {
             { text: 'Sobre Matchly', href: '#about' },
             { text: 'Servicios', href: '#services' },
             { text: 'Proyectos', href: '#portfolio' },
-            { text: 'Noticias', href: '#blog' },
             { text: 'Contacto', href: '#contact' }
         ]
     },
