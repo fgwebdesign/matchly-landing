@@ -217,11 +217,11 @@ const CONFIG = {
 
     // Configuración del Footer
     FOOTER: {
-        copyright: '© 2022 DigiMedia Co., Ltd. All Rights Reserved.',
+        copyright: '© 2025 Matchly Sports. All Rights Reserved.',
         credits: {
-            text: 'Design: ',
-            link: 'https://templatemo.com',
-            label: 'TemplateMo'
+            text: 'Designed by: ',
+            link: 'https://fgwebdesign.dev',
+            label: 'FG Web Design'
         }
     }
 };
