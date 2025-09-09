@@ -237,6 +237,11 @@
 
 /* Services Section Mobile Improvements */
 @media (max-width: 768px) {
+  /* Asegurar que la sección de servicios tenga suficiente espacio */
+  .services {
+    padding-top: 40px !important;
+  }
+  
   /* Corregir el problema de font-size: 0px que oculta las imágenes */
   .services .naccs .menu div {
     font-size: 14px !important;
@@ -350,20 +355,32 @@
   }
   
   .services .naccs .menu div .thumb span.coming-soon-tag {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    padding: 3px 8px;
-    font-size: 8px;
-    background: linear-gradient(135deg, #ff4757, #ff3742);
-    color: white;
-    border-radius: 8px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    box-shadow: 0 2px 6px rgba(255, 71, 87, 0.4);
-    z-index: 10;
-    line-height: 1.2;
+    position: absolute !important;
+    bottom: 6px !important;
+    right: 6px !important;
+    padding: 2px 6px !important;
+    font-size: 7px !important;
+    background: linear-gradient(135deg, #ff4757, #ff3742) !important;
+    color: white !important;
+    border-radius: 6px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.3px !important;
+    box-shadow: 0 2px 4px rgba(255, 71, 87, 0.3) !important;
+    z-index: 10 !important;
+    line-height: 1.1 !important;
+    height: auto !important;
+    width: auto !important;
+    max-width: none !important;
+    overflow: visible !important;
+    text-overflow: unset !important;
+    white-space: nowrap !important;
+    display: inline-block !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    border: none !important;
+    text-shadow: none !important;
   }
   
   .services .naccs .menu div .thumb:hover {
@@ -375,7 +392,7 @@
   .services .naccs .menu div .thumb .content-wrapper {
     flex: 1;
     text-align: left;
-    padding-right: 50px;
+    padding-right: 40px; /* Reducido para el tag más pequeño */
   }
   
   .services ul.nacc li.active {
@@ -411,6 +428,11 @@
 }
 
 @media (max-width: 576px) {
+  /* Asegurar que la sección de servicios tenga suficiente espacio */
+  .services {
+    padding-top: 35px !important;
+  }
+  
   /* Corregir el problema de font-size: 0px que oculta las imágenes */
   .services .naccs .menu div {
     font-size: 13px !important;
@@ -461,10 +483,22 @@
   }
   
   .services .naccs .menu div .thumb span.coming-soon-tag {
-    top: 6px;
-    right: 6px;
-    padding: 2px 6px;
-    font-size: 7px;
+    bottom: 5px !important;
+    right: 5px !important;
+    padding: 2px 5px !important;
+    font-size: 6px !important;
+    height: auto !important;
+    width: auto !important;
+    max-width: none !important;
+    overflow: visible !important;
+    text-overflow: unset !important;
+    white-space: nowrap !important;
+    display: inline-block !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    border: none !important;
+    text-shadow: none !important;
   }
   
   .services ul.nacc li.active {
@@ -473,7 +507,11 @@
 }
 
 @media (max-width: 480px) {
-  /* Corregir el problema de font-size: 0px que oculta las imágenes */
+  /* Asegurar que la sección de servicios tenga suficiente espacio */
+  .services {
+    padding-top: 30px !important;
+  }
+  
   .services .naccs .menu div {
     font-size: 12px !important;
   }
@@ -523,10 +561,22 @@
   }
   
   .services .naccs .menu div .thumb span.coming-soon-tag {
-    top: 4px;
-    right: 4px;
-    padding: 2px 4px;
-    font-size: 6px;
+    bottom: 4px !important;
+    right: 4px !important;
+    padding: 1px 4px !important;
+    font-size: 5px !important;
+    height: auto !important;
+    width: auto !important;
+    max-width: none !important;
+    overflow: visible !important;
+    text-overflow: unset !important;
+    white-space: nowrap !important;
+    display: inline-block !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    border: none !important;
+    text-shadow: none !important;
   }
   
   .services ul.nacc li.active {
@@ -679,7 +729,7 @@
     -moz-image-rendering: crisp-edges !important;
     -ms-image-rendering: crisp-edges !important;
     filter: contrast(1.1) brightness(1.05) !important;
-  }
+  } 
 }
 
 @media (max-width: 576px) {

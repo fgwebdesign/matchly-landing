@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (contact) {
         // Aplicar títulos
         contact.querySelector('.section-heading h6').textContent = CONFIG.CONTACT.title;
-        contact.querySelector('.section-heading h4').innerHTML = `${CONFIG.CONTACT.subtitle} <em>Now</em>`;
+        contact.querySelector('.section-heading h4').innerHTML = `${CONFIG.CONTACT.subtitle}`;
 
         // Aplicar imagen decorativa
         const decorImage = contact.querySelector('.contact-dec img');

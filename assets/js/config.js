@@ -63,7 +63,7 @@ const CONFIG = {
         title: 'Sobre nosotros',
         subtitle: '¿Qué es Matchly Sports?',
         main_image: {
-            path: 'assets/images/demo1.png',
+            path: 'assets/images/demo3.png',
             alt: 'Matchly Sports Demo'
         },
         content: {
@@ -165,7 +165,7 @@ const CONFIG = {
     // Sección de Contacto
     CONTACT: {
         title: 'Contacto',
-        subtitle: 'Conecta con Matchly Sports',
+        subtitle: 'Conecta con <em>Matchly Sports</em>',
         decoration_image: {
             path: 'assets/images/contact-dec-v3.png',
             alt: 'Contact Decoration'
