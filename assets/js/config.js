@@ -62,7 +62,7 @@ const CONFIG = {
     // Sección Sobre Nosotros
     ABOUT: {
         title: 'Sobre nosotros',
-        subtitle: 'Quiénes somos Matchly Sports',
+        subtitle: '¿Qué es Matchly Sports?',
         main_image: {
             path: 'assets/images/demo1.png',
             alt: 'Matchly Sports Demo'

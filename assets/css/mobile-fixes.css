@@ -1,0 +1,623 @@
+/* Mobile-specific fixes for Matchly Sports Landing Page */
+
+/* Header Mobile Fixes */
+@media (max-width: 768px) {
+  .header-area {
+    height: 100px !important;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000 !important;
+  }
+  
+  body {
+    padding-top: 100px !important;
+  }
+}
+
+/* Hero Section Mobile Improvements */
+@media (max-width: 768px) {
+  .main-banner {
+    padding: 40px 0 60px 0 !important;
+    text-align: center;
+    margin-top: 0;
+  }
+  
+  .main-banner .left-content {
+    margin-right: 0;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .main-banner .left-content .hero-tag {
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .main-banner .left-content .hero-headline {
+    font-size: 38px !important;
+    text-align: center;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+  
+  .main-banner .left-content .hero-subtitle {
+    font-size: 16px;
+    text-align: center;
+    margin-right: 0;
+    margin-bottom: 30px;
+    padding: 0 10px;
+    line-height: 1.6;
+  }
+  
+  .main-banner .left-content .cta-container {
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .main-banner .left-content .primary-button .main-cta {
+    padding: 12px 25px;
+    font-size: 15px;
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+  
+  .main-banner .left-content .secondary-button .secondary-cta {
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .main-banner .right-image {
+    margin: 40px auto 0 auto;
+    text-align: center;
+    padding: 0 20px;
+  }
+  
+  .main-banner .right-image img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .main-banner {
+    padding: 30px 0 50px 0 !important;
+  }
+  
+  .main-banner .left-content {
+    padding: 0 15px;
+  }
+  
+  .main-banner .left-content .hero-headline {
+    font-size: 32px !important;
+    margin-bottom: 15px;
+  }
+  
+  .main-banner .left-content .hero-subtitle {
+    font-size: 15px;
+    margin-bottom: 25px;
+    padding: 0 5px;
+  }
+  
+  .main-banner .left-content .cta-container {
+    gap: 12px;
+    margin-top: 15px;
+  }
+  
+  .main-banner .left-content .primary-button .main-cta {
+    padding: 10px 20px;
+    font-size: 14px;
+    max-width: 250px;
+  }
+  
+  .main-banner .right-image {
+    margin: 30px auto 0 auto;
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-banner {
+    padding: 20px 0 40px 0 !important;
+  }
+  
+  .main-banner .left-content {
+    padding: 0 10px;
+  }
+  
+  .main-banner .left-content .hero-headline {
+    font-size: 28px !important;
+    margin-bottom: 12px;
+  }
+  
+  .main-banner .left-content .hero-subtitle {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  .main-banner .left-content .primary-button .main-cta {
+    padding: 8px 18px;
+    font-size: 13px;
+    max-width: 220px;
+  }
+  
+  .main-banner .right-image {
+    margin: 25px auto 0 auto;
+    padding: 0 10px;
+  }
+}
+
+/* About Section Mobile Improvements */
+@media (max-width: 768px) {
+  #about {
+    padding-top: 80px !important;
+  }
+  
+  .about .row {
+    flex-direction: column;
+  }
+  
+  .about .row .col-lg-6 {
+    padding: 0 20px;
+    margin-bottom: 30px;
+  }
+  
+  .about-left-image {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .about-left-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+  }
+  
+  .about-right-content {
+    padding: 30px 20px !important;
+    margin: 0;
+    text-align: center;
+  }
+  
+  .about-right-content .section-heading h4 {
+    font-size: 28px;
+    text-align: center;
+  }
+  
+  .about-right-content p {
+    text-align: center;
+    font-size: 15px;
+    padding-left: 0;
+  }
+  
+  .about-right-content p::before {
+    display: none;
+  }
+  
+  .features-list {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .features-list li {
+    text-align: center;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  #about {
+    padding-top: 60px !important;
+  }
+  
+  .about .row .col-lg-6 {
+    padding: 0 15px;
+    margin-bottom: 25px;
+  }
+  
+  .about-right-content {
+    padding: 25px 15px !important;
+  }
+  
+  .about-right-content .section-heading h4 {
+    font-size: 24px;
+  }
+  
+  .about-right-content p {
+    font-size: 14px;
+  }
+}
+
+/* Services Section Mobile Improvements */
+@media (max-width: 768px) {
+  /* Corregir el problema de font-size: 0px que oculta las imágenes */
+  .services .naccs .menu div {
+    font-size: 14px !important;
+  }
+  
+  /* Asegurar que todo el contenido de las tabs sea visible */
+  .services .naccs .menu div * {
+    font-size: inherit !important;
+  }
+  
+  .services .naccs .menu div .thumb {
+    font-size: 14px !important;
+  }
+  
+  .services .naccs .menu div .thumb .title {
+    font-size: 14px !important;
+  }
+  
+  /* Asegurar que las imágenes de servicios sean visibles */
+  .services .icon img {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    max-width: 100% !important;
+    height: auto !important;
+  }
+  
+  .services .naccs .menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+    padding: 0 10px;
+  }
+  
+  .services .naccs .menu div {
+    width: 100%;
+    margin-bottom: 0;
+    min-height: 80px !important;
+    max-width: none;
+  }
+  
+  .services .naccs .menu div .thumb {
+    padding: 15px 18px;
+    text-align: center;
+    min-height: 80px !important;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .services .naccs .menu div .thumb .title {
+    font-size: 14px;
+    margin-bottom: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .services .icon {
+    width: 60px !important;
+    height: 60px !important;
+    margin-bottom: 0 !important;
+    flex-shrink: 0;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #fff !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  .services .icon img {
+    width: 45px !important;
+    height: 45px !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    object-fit: contain !important;
+  }
+  
+  .services .icon::before {
+    width: 65px !important;
+    height: 65px !important;
+  }
+  
+  .services .naccs .menu div .thumb span.coming-soon-tag {
+    position: absolute;
+    top: -8px;
+    right: 8px;
+    padding: 4px 8px;
+    font-size: 9px;
+    border-radius: 8px;
+  }
+  
+  .services ul.nacc li.active {
+    padding: 25px 15px;
+    margin-top: 10px;
+  }
+  
+  .services ul.nacc li .left-text {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .services ul.nacc li .left-text h4 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .services ul.nacc li .left-text p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  .services ul.nacc li .right-image {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .services ul.nacc li .right-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Corregir el problema de font-size: 0px que oculta las imágenes */
+  .services .naccs .menu div {
+    font-size: 13px !important;
+  }
+  
+  .services .naccs .menu {
+    gap: 6px;
+    margin-bottom: 15px;
+  }
+  
+  .services .naccs .menu div {
+    min-height: 75px !important;
+  }
+  
+  .services .naccs .menu div .thumb {
+    padding: 12px 15px;
+    min-height: 75px !important;
+    gap: 12px;
+  }
+  
+  .services .naccs .menu div .thumb .title {
+    font-size: 13px;
+  }
+  
+  .services .icon {
+    width: 55px !important;
+    height: 55px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #fff !important;
+    border-radius: 10px !important;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  .services .icon img {
+    width: 40px !important;
+    height: 40px !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    object-fit: contain !important;
+  }
+  
+  .services .icon::before {
+    width: 60px !important;
+    height: 60px !important;
+  }
+  
+  .services .naccs .menu div .thumb span.coming-soon-tag {
+    top: -6px;
+    right: 6px;
+    padding: 3px 6px;
+    font-size: 8px;
+  }
+  
+  .services ul.nacc li.active {
+    padding: 20px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Corregir el problema de font-size: 0px que oculta las imágenes */
+  .services .naccs .menu div {
+    font-size: 12px !important;
+  }
+  
+  .services .naccs .menu {
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+  
+  .services .naccs .menu div {
+    min-height: 70px !important;
+  }
+  
+  .services .naccs .menu div .thumb {
+    padding: 10px 12px;
+    min-height: 70px !important;
+    gap: 10px;
+  }
+  
+  .services .naccs .menu div .thumb .title {
+    font-size: 12px;
+  }
+  
+  .services .icon {
+    width: 50px !important;
+    height: 50px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #fff !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  .services .icon img {
+    width: 35px !important;
+    height: 35px !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    object-fit: contain !important;
+  }
+  
+  .services .icon::before {
+    width: 55px !important;
+    height: 55px !important;
+  }
+  
+  .services .naccs .menu div .thumb span.coming-soon-tag {
+    top: -5px;
+    right: 5px;
+    padding: 2px 5px;
+    font-size: 7px;
+  }
+  
+  .services ul.nacc li.active {
+    padding: 15px 8px;
+  }
+}
+
+/* Portfolio Section Mobile Improvements */
+@media (max-width: 768px) {
+  .our-portfolio .section-heading {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .our-portfolio .section-heading h4 {
+    font-size: 28px;
+  }
+  
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 0 20px;
+  }
+  
+  .portfolio-item .thumb img {
+    height: 200px;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 576px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 0 15px;
+  }
+  
+  .portfolio-item .thumb img {
+    height: 250px;
+  }
+}
+
+/* Contact Section Mobile Improvements */
+@media (max-width: 768px) {
+  .contact-us {
+    padding-top: 80px !important;
+  }
+  
+  .contact-us .section-heading {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .contact-us .section-heading h4 {
+    font-size: 28px;
+  }
+  
+  form#contact {
+    padding: 30px 20px;
+  }
+  
+  .fill-form {
+    padding: 40px 20px;
+  }
+  
+  .fill-form .info-post {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  
+  form#contact input,
+  form#contact textarea {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  form#contact button {
+    width: 100%;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .contact-us {
+    padding-top: 60px !important;
+  }
+  
+  form#contact {
+    padding: 20px 15px;
+  }
+  
+  .fill-form {
+    padding: 30px 15px;
+  }
+  
+  .contact-us .section-heading h4 {
+    font-size: 24px;
+  }
+}
+
+/* General Mobile Improvements */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .section-heading {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .section-heading h6 {
+    font-size: 16px;
+  }
+  
+  .section-heading h4 {
+    font-size: 28px;
+  }
+  
+  .section-heading .line-dec {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  .section-heading h4 {
+    font-size: 24px;
+  }
+  
+  .section-heading h6 {
+    font-size: 14px;
+  }
+}

@@ -935,6 +935,7 @@ Banner Style
   padding: 226px 0px 120px 0px;
   position: relative;
   overflow: hidden;
+  z-index: 1;
 }
 
 .main-banner:after {
@@ -1029,6 +1030,7 @@ Banner Style
 .main-banner .left-content .hero-headline .highlight-primary {
   background: linear-gradient(135deg, #98D430 0%, #80B82D 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   position: relative;
   display: inline-block;
@@ -1039,6 +1041,7 @@ Banner Style
 .main-banner .left-content .hero-headline .highlight-secondary {
   background: linear-gradient(135deg, #0099FF 0%, #0077CC 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   position: relative;
   display: inline-block;
@@ -1049,6 +1052,7 @@ Banner Style
 .main-banner .left-content .hero-headline .gradient-text {
   background: linear-gradient(135deg, #98D430 0%, #0099FF 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   position: relative;
   display: inline-block;
@@ -1091,6 +1095,21 @@ Banner Style
   margin-right: 45px;
 }
 
+@media (max-width: 768px) {
+  .main-banner .left-content .hero-subtitle {
+    margin-right: 0;
+    text-align: center;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .main-banner .left-content .hero-subtitle {
+    font-size: 16px;
+    padding: 0 15px;
+  }
+}
+
 .main-banner .left-content .hero-subtitle .brand {
   color: #4da6e7;
   font-weight: 600;
@@ -1113,6 +1132,14 @@ Banner Style
   align-items: center;
 }
 
+@media (max-width: 768px) {
+  .main-banner .left-content .cta-container {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+}
+
 .main-banner .left-content .primary-button .main-cta {
   display: inline-flex;
   align-items: center;
@@ -1130,6 +1157,24 @@ Banner Style
 .main-banner .left-content .primary-button .main-cta:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(77, 166, 231, 0.3);
+}
+
+@media (max-width: 768px) {
+  .main-banner .left-content .primary-button .main-cta {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+    padding: 12px 25px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .main-banner .left-content .primary-button .main-cta {
+    max-width: 250px;
+    padding: 10px 20px;
+    font-size: 14px;
+  }
 }
 
 .main-banner .left-content .primary-button .emoji-small {
@@ -1150,6 +1195,13 @@ Banner Style
   color: #4da6e7;
 }
 
+@media (max-width: 768px) {
+  .main-banner .left-content .secondary-button .secondary-cta {
+    text-align: center;
+    font-size: 14px;
+  }
+}
+
 .main-banner .right-image {
   text-align: right;
   position: relative;
@@ -1158,6 +1210,26 @@ Banner Style
 
 .main-banner .right-image img {
   max-width: 593px;
+}
+
+@media (max-width: 768px) {
+  .main-banner .right-image {
+    text-align: center;
+    margin: 40px auto 0 auto;
+    padding: 0 20px;
+  }
+  
+  .main-banner .right-image img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .main-banner .right-image {
+    margin: 30px auto 0 auto;
+    padding: 0 15px;
+  }
 }
 
 
@@ -2610,7 +2682,7 @@ responsive
   }
   .main-banner {
     text-align: center;
-    padding: 226px 0px 30px 0px;
+    padding: 180px 0px 30px 0px;
   }
   .main-banner:before {
     display: none;
