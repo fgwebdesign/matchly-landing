@@ -1,6 +1,3 @@
-// Configuración del endpoint
-const API_ENDPOINT = 'http://localhost:3000/api/send-email';
-
 // Función para mostrar mensajes al usuario
 function showMessage(message, isError = false) {
     alert(message);
@@ -29,29 +26,50 @@ async function handleSubmit(event) {
     submitButton.disabled = true;
 
     try {
-        const response = await fetch(API_ENDPOINT, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify({
-                name: formData.get('name'),
-                email: formData.get('email'),
-                subject: formData.get('subject'),
-                message: formData.get('message')
-            })
-        });
+        // Obtener los datos del formulario
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const subject = formData.get('subject');
+        const message = formData.get('message');
 
-        if (response.ok) {
-            showMessage('¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.');
-            form.reset();
-        } else {
-            throw new Error('Error al enviar el mensaje');
+        // Validar campos requeridos
+        if (!name || !email || !subject || !message) {
+            throw new Error('Por favor, completa todos los campos requeridos.');
         }
+
+        // Validar formato de email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            throw new Error('Por favor, ingresa un email válido.');
+        }
+
+        // Crear el enlace de email con los datos del formulario
+        const emailBody = `
+Nombre: ${name}
+Email: ${email}
+Asunto: ${subject}
+
+Mensaje:
+${message}
+
+---
+Este mensaje fue enviado desde el formulario de contacto de Matchly Sports.
+        `;
+
+        const mailtoLink = `mailto:contacto@matchlysports.com?subject=${encodeURIComponent('Nuevo contacto desde web: ' + subject)}&body=${encodeURIComponent(emailBody)}`;
+        
+        // Abrir el cliente de email del usuario
+        window.location.href = mailtoLink;
+        
+        // Mostrar mensaje de éxito
+        showMessage('¡Perfecto! Se abrió tu cliente de email con el mensaje pre-llenado. Solo necesitas enviarlo para completar el proceso.');
+        
+        // Resetear el formulario
+        form.reset();
+        
     } catch (error) {
         console.error('Error:', error);
-        showMessage('Lo sentimos, hubo un error al enviar el mensaje. Por favor, intenta nuevamente.', true);
+        showMessage(error.message || 'Lo sentimos, hubo un error al procesar el formulario. Por favor, intenta nuevamente.', true);
     } finally {
         if (submitButton) {
             submitButton.textContent = originalButtonText;
