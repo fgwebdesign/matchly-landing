@@ -19,7 +19,7 @@
 /* Hero Section Mobile Improvements */
 @media (max-width: 768px) {
   .main-banner {
-    padding: 40px 0 60px 0 !important;
+    padding: 80px 0 60px 0 !important; /* Increased top padding to account for fixed headers */
     text-align: center;
     margin-top: 0;
   }
@@ -88,7 +88,7 @@
 
 @media (max-width: 576px) {
   .main-banner {
-    padding: 30px 0 50px 0 !important;
+    padding: 70px 0 50px 0 !important; /* Increased top padding to account for fixed headers */
   }
   
   .main-banner .left-content {
@@ -125,7 +125,7 @@
 
 @media (max-width: 480px) {
   .main-banner {
-    padding: 20px 0 40px 0 !important;
+    padding: 60px 0 40px 0 !important; /* Increased top padding to account for fixed headers */
   }
   
   .main-banner .left-content {
@@ -242,9 +242,18 @@
     font-size: 14px !important;
   }
   
-  /* Asegurar que todo el contenido de las tabs sea visible */
+  /* Override the problematic rule from main CSS that hides content */
   .services .naccs .menu div * {
     font-size: inherit !important;
+  }
+  
+  /* Asegurar que las imágenes sean específicamente visibles */
+  .services .naccs .menu div .icon {
+    font-size: 14px !important;
+  }
+  
+  .services .naccs .menu div .icon img {
+    font-size: 14px !important;
   }
   
   .services .naccs .menu div .thumb {
@@ -262,6 +271,18 @@
     opacity: 1 !important;
     max-width: 100% !important;
     height: auto !important;
+    width: 60px !important;
+    height: 60px !important;
+    object-fit: contain !important;
+    font-size: 14px !important;
+  }
+  
+  /* Asegurar que el contenedor del icono también sea visible */
+  .services .naccs .menu div .thumb .icon {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    font-size: 14px !important;
   }
   
   .services .naccs .menu {
@@ -275,19 +296,19 @@
   .services .naccs .menu div {
     width: 100%;
     margin-bottom: 0;
-    min-height: 60px !important;
+    min-height: 80px !important;
     max-width: none;
     position: relative;
   }
   
   .services .naccs .menu div .thumb {
-    padding: 12px 16px;
+    padding: 15px 18px;
     text-align: left;
-    min-height: 60px !important;
+    min-height: 80px !important;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    gap: 12px;
+    gap: 15px;
     border-radius: 12px;
     background: #f8f9fa;
     border: 1px solid #e9ecef;
@@ -302,21 +323,21 @@
   }
   
   .services .icon {
-    width: 40px !important;
-    height: 40px !important;
+    width: 70px !important;
+    height: 70px !important;
     margin-bottom: 0 !important;
     flex-shrink: 0;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     background: #fff !important;
-    border-radius: 8px !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
   }
   
   .services .icon img {
-    width: 32px !important;
-    height: 32px !important;
+    width: 60px !important;
+    height: 60px !important;
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
@@ -324,8 +345,8 @@
   }
   
   .services .icon::before {
-    width: 40px !important;
-    height: 40px !important;
+    width: 70px !important;
+    height: 70px !important;
   }
   
   .services .naccs .menu div .thumb span.coming-soon-tag {
@@ -401,13 +422,13 @@
   }
   
   .services .naccs .menu div {
-    min-height: 55px !important;
+    min-height: 75px !important;
   }
   
   .services .naccs .menu div .thumb {
-    padding: 10px 14px;
-    min-height: 55px !important;
-    gap: 10px;
+    padding: 12px 16px;
+    min-height: 75px !important;
+    gap: 12px;
   }
   
   .services .naccs .menu div .thumb .title {
@@ -415,28 +436,28 @@
   }
   
   .services .icon {
-    width: 35px !important;
-    height: 35px !important;
+    width: 60px !important;
+    height: 60px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     background: #fff !important;
-    border-radius: 6px !important;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08) !important;
+    border-radius: 10px !important;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12) !important;
   }
   
   .services .icon img {
-    width: 56px !important;
-    height: 56px !important;
+    width: 50px !important;
+    height: 50px !important;
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
     object-fit: contain !important;
   }
   
-  .services .icon::before {
-    width: 70px !important;
-    height: 70px !important;
+  .services .icon::before { 
+    width: 60px !important;
+    height: 60px !important;
   }
   
   .services .naccs .menu div .thumb span.coming-soon-tag {
@@ -463,13 +484,13 @@
   }
   
   .services .naccs .menu div {
-    min-height: 50px !important;
+    min-height: 70px !important;
   }
   
   .services .naccs .menu div .thumb {
-    padding: 8px 12px;
-    min-height: 50px !important;
-    gap: 8px;
+    padding: 10px 14px;
+    min-height: 70px !important;
+    gap: 10px;
   }
   
   .services .naccs .menu div .thumb .title {
@@ -477,19 +498,19 @@
   }
   
   .services .icon {
-    width: 30px !important;
-    height: 30px !important;
+    width: 50px !important;
+    height: 50px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     background: #fff !important;
-    border-radius: 6px !important;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
   }
   
   .services .icon img {
-    width: 24px !important;
-    height: 24px !important;
+    width: 40px !important;
+    height: 40px !important;
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
@@ -497,8 +518,8 @@
   }
   
   .services .icon::before {
-    width: 30px !important;
-    height: 30px !important;
+    width: 50px !important;
+    height: 50px !important;
   }
   
   .services .naccs .menu div .thumb span.coming-soon-tag {
@@ -643,5 +664,167 @@
   
   .section-heading h6 {
     font-size: 14px;
+  }
+}
+
+/* Logo Quality Improvements for Mobile */
+@media (max-width: 768px) {
+  .header-area .main-nav .logo img {
+    max-width: 120px !important;
+    height: auto !important;
+    image-rendering: -webkit-optimize-contrast !important;
+    image-rendering: crisp-edges !important;
+    image-rendering: pixelated !important;
+    -webkit-image-rendering: -webkit-optimize-contrast !important;
+    -moz-image-rendering: crisp-edges !important;
+    -ms-image-rendering: crisp-edges !important;
+    filter: contrast(1.1) brightness(1.05) !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .header-area .main-nav .logo img {
+    max-width: 100px !important;
+    height: auto !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-area .main-nav .logo img {
+    max-width: 90px !important;
+    height: auto !important;
+  }
+}
+
+/* Pre-header Mobile Improvements - Make it visible and properly positioned */
+@media (max-width: 768px) {
+  .pre-header {
+    display: block !important;
+    height: auto !important;
+    padding: 8px 0 !important;
+    background: linear-gradient(135deg, #2B4B80 0%, #4da6e7 100%) !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1002 !important;
+    width: 100% !important;
+  }
+  
+  .pre-header .container {
+    padding: 0 15px !important;
+  }
+  
+  .pre-header ul.info {
+    text-align: center !important;
+    margin-bottom: 5px !important;
+  }
+  
+  .pre-header ul.info li {
+    margin-right: 0 !important;
+    margin-bottom: 5px !important;
+  }
+  
+  .pre-header ul.info li a {
+    font-size: 12px !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+  }
+  
+  .pre-header ul.info li a i {
+    font-size: 12px !important;
+    padding: 4px !important;
+    width: 20px !important;
+    height: 20px !important;
+    margin-right: 6px !important;
+  }
+  
+  .pre-header ul.social-media {
+    text-align: center !important;
+    margin-top: 5px !important;
+  }
+  
+  .pre-header ul.social-media li {
+    margin-left: 4px !important;
+    margin-right: 4px !important;
+  }
+  
+  .pre-header ul.social-media li a {
+    width: 24px !important;
+    height: 24px !important;
+    font-size: 10px !important;
+  }
+  
+  /* Adjust header position to account for pre-header */
+  .header-area {
+    top: 60px !important; /* Adjust based on pre-header height */
+    z-index: 1001 !important;
+  }
+  
+  body {
+    padding-top: 160px !important; /* Adjust for both pre-header (~60px) and header (100px) */
+  }
+}
+
+@media (max-width: 576px) {
+  .pre-header {
+    padding: 6px 0 !important;
+  }
+  
+  .pre-header ul.info li a {
+    font-size: 11px !important;
+  }
+  
+  .pre-header ul.info li a i {
+    font-size: 11px !important;
+    padding: 3px !important;
+    width: 18px !important;
+    height: 18px !important;
+  }
+  
+  .pre-header ul.social-media li a {
+    width: 22px !important;
+    height: 22px !important;
+    font-size: 9px !important;
+  }
+  
+  /* Adjust header position for smaller screens */
+  .header-area {
+    top: 55px !important;
+  }
+  
+  body {
+    padding-top: 155px !important; /* Adjust for both pre-header (~55px) and header (100px) */
+  }
+}
+
+@media (max-width: 480px) {
+  .pre-header {
+    padding: 5px 0 !important;
+  }
+  
+  .pre-header ul.info li a {
+    font-size: 10px !important;
+  }
+  
+  .pre-header ul.info li a i {
+    font-size: 10px !important;
+    padding: 2px !important;
+    width: 16px !important;
+    height: 16px !important;
+  }
+  
+  .pre-header ul.social-media li a {
+    width: 20px !important;
+    height: 20px !important;
+    font-size: 8px !important;
+  }
+  
+  /* Adjust header position for smallest screens */
+  .header-area {
+    top: 50px !important;
+  }
+  
+  body {
+    padding-top: 150px !important; /* Adjust for both pre-header (~50px) and header (100px) */
   }
 }
