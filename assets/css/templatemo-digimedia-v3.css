@@ -3009,6 +3009,125 @@ responsive
   font-family: 'Outfit', sans-serif;
 }
 
+/* Features Grid - 3 columnas horizontales */
+.features-grid-container {
+  margin: 35px 0;
+}
+
+.features-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+  gap: 0;
+}
+
+.feature-card {
+  height: 100%;
+  padding: 25px 20px;
+  background: linear-gradient(145deg, #ffffff, #f8f9fa);
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 4px 20px rgba(77, 166, 231, 0.08),
+    0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(77, 166, 231, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #4da6e7, #2B4B80);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  transform-origin: left;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 12px 40px rgba(77, 166, 231, 0.2),
+    0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: rgba(77, 166, 231, 0.3);
+}
+
+.feature-card:hover::before {
+  transform: scaleX(1);
+}
+
+.feature-icon {
+  font-size: 32px;
+  margin-bottom: 15px;
+  line-height: 1;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.feature-text {
+  color: #2a2a2a;
+  font-size: 14px;
+  line-height: 1.6;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  font-family: 'DM Sans', sans-serif;
+  margin: 0;
+}
+
+/* Responsive para 3 columnas */
+@media (min-width: 992px) {
+  .features-grid .col-lg-4 {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 991px) {
+  .features-grid .col-md-6 {
+    padding: 0 15px;
+  }
+  
+  .feature-card {
+    padding: 20px 18px;
+  }
+  
+  .feature-text {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 767px) {
+  .features-grid .col-sm-12 {
+    padding: 0 15px;
+  }
+  
+  .feature-card {
+    padding: 18px 16px;
+    margin-bottom: 20px;
+  }
+  
+  .feature-icon {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+  
+  .feature-text {
+    font-size: 13px;
+  }
+}
+
 /* Estilos responsivos mejorados */
 @media (max-width: 991px) {
   .about-right-content {

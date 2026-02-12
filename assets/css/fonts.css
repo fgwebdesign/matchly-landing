@@ -75,3 +75,43 @@
     font-weight: 400;
     line-height: 1.6;
 }
+
+/* Opción Minimal - Profesional y Minimalista */
+.font-option-minimal {
+    --font-primary: 'Inter', sans-serif;
+    --font-secondary: 'DM Sans', sans-serif;
+}
+
+.font-option-minimal h1,
+.font-option-minimal h2,
+.font-option-minimal h3,
+.font-option-minimal h4,
+.font-option-minimal h5,
+.font-option-minimal h6,
+.font-option-minimal .nav a {
+    font-family: var(--font-primary);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+}
+
+.font-option-minimal p,
+.font-option-minimal li,
+.font-option-minimal span,
+.font-option-minimal body {
+    font-family: var(--font-secondary);
+    font-weight: 400;
+    line-height: 1.7;
+    letter-spacing: -0.01em;
+}
+
+.font-option-minimal .section-heading h4,
+.font-option-minimal .section-heading h6 {
+    font-family: var(--font-primary);
+}
+
+.font-option-minimal .hero-headline,
+.font-option-minimal .hero-subtitle {
+    font-family: var(--font-primary);
+    line-height: 1.4;
+}

@@ -88,10 +88,34 @@ document.addEventListener('DOMContentLoaded', () => {
         contentContainer.querySelector('.highlight-text').innerHTML = CONFIG.ABOUT.content.highlight;
         contentContainer.querySelector('.description-text').textContent = CONFIG.ABOUT.content.description;
 
+        const featuresGrid = about.querySelector('.features-grid');
+        if (featuresGrid) {
+            // Crear cards en formato de 3 columnas
+            const featuresHTML = CONFIG.ABOUT.content.features
+                .map((feature, index) => {
+                    // Extraer el emoji/icono del feature
+                    const emojiMatch = feature.match(/^([📊🏆📅🎾💳🏪📸👨‍🏫📱🏢])\s*/);
+                    const emoji = emojiMatch ? emojiMatch[1] : '✓';
+                    const text = emojiMatch ? feature.replace(emojiMatch[0], '').trim() : feature;
+                    
+                    return `
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="feature-card wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="${0.1 * index}s">
+                                <div class="feature-icon">${emoji}</div>
+                                <div class="feature-text">${text}</div>
+                            </div>
+                        </div>
+                    `;
+                })
+                .join('');
+            featuresGrid.innerHTML = featuresHTML;
+        }
+        
+        // También mantener compatibilidad con la lista antigua por si acaso
         const featuresList = about.querySelector('.features-list');
-        featuresList.innerHTML = CONFIG.ABOUT.content.features
-            .map(feature => `<li>${feature}</li>`)
-            .join('');
+        if (featuresList) {
+            featuresList.style.display = 'none';
+        }
             
         contentContainer.querySelector('.objective-text').innerHTML = CONFIG.ABOUT.content.conclusion;
     }
@@ -104,63 +128,166 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Aplicar servicios
+    // Aplicar servicios - GENERACIÓN DINÁMICA
     const services = document.querySelector('#services');
     if (services) {
         services.querySelector('.section-heading h6').textContent = CONFIG.SERVICES.title;
-        services.querySelector('.section-heading h4').innerHTML = `Nuestras <em>${CONFIG.SERVICES.subtitle}</em>`;
+        services.querySelector('.section-heading h4').innerHTML = `${CONFIG.SERVICES.subtitle}`;
 
-        // Aplicar títulos e iconos de servicios a los elementos existentes
-        const serviceTitles = services.querySelectorAll('.content-wrapper .title');
-        const serviceIcons = services.querySelectorAll('.icon img');
-        
-        CONFIG.SERVICES.tabs.forEach((tab, index) => {
-            if (serviceTitles[index]) {
-                serviceTitles[index].textContent = tab.title;
-            }
-            if (serviceIcons[index]) {
-                serviceIcons[index].src = tab.icon; 
-                serviceIcons[index].alt = tab.title;
-            }
-        });
+        // Generar tabs dinámicamente
+        const menuContainer = services.querySelector('.menu');
+        const contentContainer = services.querySelector('.nacc');
 
-        // Aplicar contenido de las pestañas de servicios
-        const serviceContentTabs = services.querySelectorAll('.nacc li');
-        CONFIG.SERVICES.tabs.forEach((tab, index) => {
-            const contentTab = serviceContentTabs[index];
-            if (contentTab && tab.content) {
-                const leftText = contentTab.querySelector('.left-text');
-                if (leftText) {
-                    const h4 = leftText.querySelector('h4');
-                    const p = leftText.querySelector('p');
-                    const ticksList = leftText.querySelector('.ticks-list');
+        if (menuContainer && contentContainer) {
+            // Limpiar contenido existente
+            menuContainer.innerHTML = '';
+            contentContainer.innerHTML = '';
+
+            // Generar tabs y contenido
+            CONFIG.SERVICES.tabs.forEach((tab, index) => {
+                // Crear tab item
+                const tabWrapper = document.createElement('div');
+                tabWrapper.className = index === 0 ? 'first-thumb active' : '';
+                
+                const tabHTML = `
+                    <div class="thumb">
+                        <span class="icon"><img src="${tab.icon}" alt="${tab.title}"></span>
+                        <div class="content-wrapper">
+                            <span class="title">${tab.title}</span>
+                        </div>
+                        ${tab.isComingSoon ? '<span class="coming-soon-tag">Coming Soon</span>' : ''}
+                    </div>
+                `;
+                tabWrapper.innerHTML = tabHTML;
+                menuContainer.appendChild(tabWrapper);
+
+                // Crear contenido tab
+                const contentItem = document.createElement('li');
+                contentItem.className = index === 0 ? 'active' : '';
+                
+                const conclusionHTML = tab.content.conclusion 
+                    ? `<p style="margin-top: 20px; font-weight: 500; color: #4da6e7;">${tab.content.conclusion}</p>` 
+                    : '';
+
+                const updateNoticeHTML = tab.isComingSoon && tab.content.conclusion
+                    ? `
+                        <div class="update-notice" style="margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #4da6e7;">
+                            <div class="update-icon" style="font-size: 24px; margin-bottom: 10px;">🚀</div>
+                            <div class="update-content">
+                                <h5 style="margin: 0 0 5px 0; color: #2a2a2a; font-weight: 600;">Próxima Actualización</h5>
+                                <p style="margin: 0; color: #666;">${tab.content.conclusion}</p>
+                            </div>
+                        </div>
+                    `
+                    : '';
+
+                const contentHTML = `
+                    <div>
+                        <div class="thumb">
+                            <div class="row">
+                                <div class="col-lg-6 align-self-center">
+                                    <div class="left-text">
+                                        <h4>${tab.content.title}</h4>
+                                        <p>${tab.content.description}</p>
+                                        <div class="ticks-list">
+                                            ${tab.content.features.map(feature => 
+                                                `<span><i class="fa fa-check"></i> ${feature}</span>`
+                                            ).join('')}
+                                        </div>
+                                        ${!tab.isComingSoon ? conclusionHTML : ''}
+                                        ${updateNoticeHTML}
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 align-self-center">
+                                    <div class="right-image">
+                                        <img src="${tab.content.image}" alt="${tab.title}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                contentItem.innerHTML = contentHTML;
+                contentContainer.appendChild(contentItem);
+            });
+
+            // Inicializar sistema de tabs después de crear el contenido
+            const firstTab = menuContainer.querySelector('.first-thumb');
+            const firstContent = contentContainer.querySelector('li.active');
+            
+            // Función para inicializar tabs
+            const initTabs = () => {
+                if (typeof $ === 'undefined') {
+                    console.warn('jQuery no está disponible');
+                    return;
+                }
+                
+                // Asegurar que el primer tab y contenido estén activos
+                if (firstTab && firstContent) {
+                    firstTab.classList.add('active');
+                    firstContent.classList.add('active');
                     
-                    if (h4) h4.textContent = tab.content.title;
-                    if (p) p.textContent = tab.content.description;
+                    // Esperar a que las imágenes se carguen antes de calcular altura
+                    const images = firstContent.querySelectorAll('img');
+                    let imagesLoaded = 0;
+                    const totalImages = images.length;
                     
-                    if (ticksList && tab.content.features) {
-                        const iconClass = tab.isComingSoon ? 'fa fa-clock-o' : 'fa fa-check';
-                        ticksList.innerHTML = tab.content.features
-                            .map(feature => `<span><i class="${iconClass}"></i> ${feature}</span>`)
-                            .join('');
+                    if (totalImages === 0) {
+                        setHeight();
+                    } else {
+                        images.forEach(img => {
+                            if (img.complete) {
+                                imagesLoaded++;
+                                if (imagesLoaded === totalImages) setHeight();
+                            } else {
+                                img.addEventListener('load', () => {
+                                    imagesLoaded++;
+                                    if (imagesLoaded === totalImages) setHeight();
+                                });
+                                img.addEventListener('error', () => {
+                                    imagesLoaded++;
+                                    if (imagesLoaded === totalImages) setHeight();
+                                });
+                            }
+                        });
                     }
                     
-                    // Manejar update notice para torneos
-                    const updateNotice = leftText.querySelector('.update-notice');
-                    if (updateNotice && tab.isComingSoon && tab.content.conclusion) {
-                        updateNotice.querySelector('.update-icon').textContent = '🚀';
-                        updateNotice.querySelector('h5').textContent = 'Próxima Actualización';
-                        updateNotice.querySelector('p').textContent = tab.content.conclusion;
+                    function setHeight() {
+                        const listItemHeight = $(firstContent).innerHeight();
+                        $('.naccs ul').height(listItemHeight + 'px');
                     }
                 }
                 
-                const rightImage = contentTab.querySelector('.right-image img');
-                if (rightImage && tab.content.image) {
-                    rightImage.src = tab.content.image;
-                    rightImage.alt = tab.title;
-                }
+                // Re-bind eventos después de generar contenido dinámico
+                $(document).off('click', '.naccs .menu div');
+                $(document).on('click', '.naccs .menu div', function() {
+                    var numberIndex = $(this).index();
+                    
+                    if (!$(this).hasClass("active")) {
+                        $(".naccs .menu div").removeClass("active");
+                        $(".naccs ul li").removeClass("active");
+                        
+                        $(this).addClass("active");
+                        var targetLi = $(".naccs ul").find("li:eq(" + numberIndex + ")");
+                        targetLi.addClass("active");
+                        
+                        // Esperar un poco para que la transición se complete
+                        setTimeout(() => {
+                            var listItemHeight = targetLi.innerHeight();
+                            $(".naccs ul").height(listItemHeight + "px");
+                        }, 50);
+                    }
+                });
+            };
+            
+            // Ejecutar después de que todo esté listo
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initTabs);
+            } else {
+                // Si ya está cargado, ejecutar después de un pequeño delay
+                setTimeout(initTabs, 100);
             }
-        });
+        }
     }
 
     // Aplicar sección de contacto
@@ -232,7 +359,7 @@ document.addEventListener('DOMContentLoaded', () => {
         footer.innerHTML = `
             ${CONFIG.FOOTER.copyright}
             <br>
-            ${CONFIG.FOOTER.credits.text}<a href="${CONFIG.FOOTER.credits.link}" target="_parent" title="free css templates">${CONFIG.FOOTER.credits.label}</a>
+            ${CONFIG.FOOTER.credits.text}<a href="${CONFIG.FOOTER.credits.link}" target="_parent">${CONFIG.FOOTER.credits.label}</a>
         `;
     }
 });
